@@ -2,8 +2,12 @@ name: TNDGE Notification Scraper Cron
 
 on:
   schedule:
-    # Triggers every 30 minutes
-    - cron: '*/30 * * * *'
+    # Triggers exactly 3 times a day:
+    # 05:43 UTC -> 11:13 AM IST (Your preferred morning check)
+    # 10:12 UTC -> 03:42 PM IST (Afternoon check)
+    # 15:12 UTC -> 08:42 PM IST (Night check)
+    - cron: '43 5 * * *'
+    - cron: '12 10,15 * * *'
   workflow_dispatch: # Allows manual trigger via the GitHub Actions UI
 
 jobs:
